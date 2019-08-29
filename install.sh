@@ -35,6 +35,8 @@ base() {
 	sudo yum install -y net-tools
 	sudo yum install -y ftp
 	sudo yum install -y e2fsprogs
+	sudo yum install -y nss-pam-ldapd
+
 	# need to Cron the below via "rkhunter --check"
 	#sudo yum install -y rkhunter	
 
