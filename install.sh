@@ -278,12 +278,12 @@ ohif() {
 	#sudo yum install -y npm
 	curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
 	sudo yum install -y yarn
-	sudo yarn install
 
 	# now get ohif source
 	sudo yum install -y git
 	git clone https://github.com/OHIF/Viewers.git
 	cd Viewers
+	sudo yarn install
 	sudo yarn build
 
 }
