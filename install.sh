@@ -262,10 +262,10 @@ orthanc() {
 }
 
 
-ohif() {
+ohif_dev() {
 ############################
-# Purpose:
-#
+# Purpose: this builds OHIF from source, 
+#	good for wrting new Modules
 # https://yarnpkg.com/en/docs/install#centos-stable
 # https://docs.ohif.org/essentials/getting-started.html
 #########################
@@ -286,6 +286,21 @@ ohif() {
 	sudo yarn install
 	sudo yarn build
 
+}
+
+
+ohif() {
+############################
+# Purpose: this launches canned 
+#	OHIF docker for quick demo
+##########################
+
+	docker
+
+	# from https://github.com/OHIF/Viewers/issues/360 
+	# abd https://hub.docker.com/r/ohif/viewer
+	sudo docker pull ohif/viewer:v1.x
+	sudo docker run -p 3000:3000 --name ohif ohif/viewer:v1.x
 }
 
 

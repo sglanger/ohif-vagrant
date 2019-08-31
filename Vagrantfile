@@ -32,8 +32,8 @@ Vagrant.configure("2") do |config|
   # host ip = 10.0.2.2
   # first guest ip = 10.0.2.15
   # for ohif
-  #config.vm.network "forwarded_port", guest: 8042, host: 8042
-  #config.vm.network "forwarded_port", guest: 4242, host: 4242
+  config.vm.network "forwarded_port", guest: 3000, host: 3000
+
  
   #for RDP session -
   #config.vm.network "forwarded_port", guest: 3389, host: 2179
