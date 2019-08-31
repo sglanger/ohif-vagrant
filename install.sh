@@ -271,7 +271,7 @@ ohif_dev() {
 #########################
 
 	# https://computingforgeeks.com/installing-node-js-10-lts-on-centos-7-fedora-29-fedora-28/
-	sudo curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
+	curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
 	sudo yum clean all && sudo yum makecache fast
 	sudo yum install -y gcc-c++ make
   	sudo yum install -y node.js
@@ -283,8 +283,9 @@ ohif_dev() {
 	sudo yum install -y git
 	git clone https://github.com/OHIF/Viewers.git
 	cd Viewers
+	yarn config set workspaces-experimenta true
 	sudo yarn install
-	sudo yarn build
+	sudo yarn run dev
 
 }
 
@@ -299,8 +300,8 @@ ohif() {
 
 	# from https://github.com/OHIF/Viewers/issues/360 
 	# abd https://hub.docker.com/r/ohif/viewer
-	sudo docker pull ohif/viewer:v1.x
-	sudo docker run -p 3000:3000 --name ohif ohif/viewer:v1.x
+	sudo docker pull ohif/viewer:latest
+	sudo docker run -p 3000:3000 --name ohif ohif/viewer:latest
 }
 
 
@@ -322,7 +323,7 @@ ohif() {
 
 
 	# then depending on role we call one or more Docker apps
-	ohif
+	ohif_dev
 
 	# GUI
 	# first time wants a passwd
