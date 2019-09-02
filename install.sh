@@ -283,7 +283,7 @@ ohif_dev() {
 	sudo yum install -y git
 	git clone https://github.com/OHIF/Viewers.git
 	cd Viewers
-	yarn config set workspaces-experimenta true
+	yarn config set workspaces-experimental true
 	sudo yarn install
 	sudo yarn run dev
 
