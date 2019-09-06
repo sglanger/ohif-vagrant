@@ -137,7 +137,7 @@ postgres() {
 }
 
 
-################################### dev tools
+################################### dev tools9
 ###################################
 
 dev() {
@@ -178,7 +178,7 @@ GUI() {
 	echo "installing GUI"
 	# https://www.centos.org/forums/viewtopic.php?t=52900
 	sudo yum groupinstall "GNOME Desktop"
-	sudo yum install -y tigervnc-server
+	sudo yum install -y tigervnc-server9
 	sudo wget http://dl.fedoraproject.org/pub/epel/testing/6/x86_64/Packages/x/xrdp-0.6.1-5.el6.x86_64.rpm
 	sudo yum install -y xrdp-0.6.1-5.el6.x86_64.rpm
 	sudo service xrdp start
