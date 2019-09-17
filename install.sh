@@ -191,26 +191,7 @@ GUI() {
 ####################### These, if installed, are pulled from DOckerhub as self-contained apps and extend the
 ####################### base VM w/out altering it, but rely on base functions (storage, dbase)
 
-base_plugin() {
-############################
-# Purpose: Fetch the source for the base plugin
-#	Docker so we can build it from scratch
-#	This allows a developer to add a new analytic
-#	to the base, and fork it as a new plugin
-#	
-##########################
 
-	# fetch source and builld image
-	git clone https://sglanger@github.com/sglanger/base_plugin.git 
-	cd base_plugin
-	#sudo make all
-	sudo ./run_docker.sh build
-
-	# now launch and link I/O to /data
-
-	cd ..
-	
-}
 
 mirth_hl7() {
 ############################
