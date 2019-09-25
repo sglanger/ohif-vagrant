@@ -282,7 +282,8 @@ ohif() {
 	# from https://github.com/OHIF/Viewers/issues/360 
 	# abd https://hub.docker.com/r/ohif/viewer
 	sudo docker pull ohif/viewer:latest
-	sudo docker run -p 3000:3000 --name ohif ohif/viewer:latest
+	#sudo docker run -p 3000:3000 --name ohif ohif/viewer:latest
+	sudo docker run --net="host" --name ohif ohif/viewer:latest
 }
 
 
@@ -304,11 +305,8 @@ ohif() {
 
 
 	# then depending on role we call one or more Docker apps
-	ohif_dev
-
-	# GUI
-	# first time wants a passwd
-	#/usr/bin/vncserver 
+	#ohif_dev
+	ohif
 	
 	exit
 	
