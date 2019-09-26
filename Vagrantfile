@@ -27,13 +27,14 @@ Vagrant.configure("2") do |config|
   # Port forwarding - uncomment the items below you will actually use
   # (as dictated by what is selected to install in the install.sh )
   # ssh port - not needed,  Vagrant does by default
-  config.vm.network "forwarded_port", guest: 22, host: 2223
+  #config.vm.network "forwarded_port", guest: 22, host: 2223
 
   # host ip = 10.0.2.2
   # first guest ip = 10.0.2.15
-  # for ohif
+  # for ohif (the good folks at OHIF were kind enough not to mention 80 and 443)
   config.vm.network "forwarded_port", guest: 3000, host: 3000
-
+  config.vm.network "forwarded_port", guest: 80, host: 8000
+  config.vm.network "forwarded_port", guest: 443, host: 4430
  
   #for RDP session -
   #config.vm.network "forwarded_port", guest: 3389, host: 2179

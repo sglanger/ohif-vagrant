@@ -283,7 +283,8 @@ ohif() {
 	# abd https://hub.docker.com/r/ohif/viewer
 	sudo docker pull ohif/viewer:latest
 	#sudo docker run -p 3000:3000 --name ohif ohif/viewer:latest
-	sudo docker run --net="host" --name ohif ohif/viewer:latest
+	cd /home/vagrant/files/ohif/run_dock.sh build
+	cd -
 }
 
 
