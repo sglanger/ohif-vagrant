@@ -11,6 +11,7 @@ Vagrant.configure("2") do |config|
   # sgl adds, see
   # https://cloud.centos.org/centos/7/vagrant/x86_64/images/
   config.vm.box = "ohif-vagrant"
+  config.vm.hostname = "ohif"
   config.vm.box_url = "https://cloud.centos.org/centos/7/vagrant/x86_64/images/CentOS-7-x86_64-Vagrant-1809_01.VirtualBox.box"
 
   # make a second hard disk https://gist.github.com/leifg/4713995
@@ -33,8 +34,8 @@ Vagrant.configure("2") do |config|
   # first guest ip = 10.0.2.15
   # for ohif (the good folks at OHIF were kind enough not to mention 80 and 443)
   config.vm.network "forwarded_port", guest: 3000, host: 3000
-  config.vm.network "forwarded_port", guest: 80, host: 8000
-  config.vm.network "forwarded_port", guest: 443, host: 4430
+ # config.vm.network "forwarded_port", guest: 80, host: 8000
+ # config.vm.network "forwarded_port", guest: 443, host: 4430
  
   #for RDP session -
   #config.vm.network "forwarded_port", guest: 3389, host: 2179

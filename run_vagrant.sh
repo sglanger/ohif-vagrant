@@ -30,7 +30,7 @@ case "$1" in
 
 	conn)
 		# every rebuild changes the RSA key, so ....
-		ssh -Y -p 2222 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no vagrant@localhost
+		ssh -Y -p 2200 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no vagrant@localhost
 	;;
 	
 	status)

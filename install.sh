@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ################################################
-# Author: SG Langer 12/11/2018
+# Author: SG Langer Sept 2018 (orignal)
 #
 # Purpose: a scalable Vagrant install script for creating 
 #	different kinds of VMs (Dev, dbase, webserver, etc)
@@ -159,7 +159,7 @@ dev() {
 	wget https://services.gradle.org/distributions/gradle-3.4.1-bin.zip
 	sudo mkdir /opt/gradle
 	sudo unzip -d /opt/gradle gradle-3.4.1-bin.zip
-	sudo PATH=$PATH:/opt/gradle/gradle-3.4.1/bin
+	sudo PATH=$PATH:/opt/gradle/gradle-3.4.1/binhttps://siim.org/page/19m_s_integrating_orthanc_ohif
 }
 
 
@@ -239,7 +239,8 @@ orthanc() {
 
 	# -2a- this starts Orthanc with a new conf file that point to Postgres
 	# from https://book.orthanc-server.com
-    sudo docker run --name orthanc -p 4242:4242 -p 8042:8042 --rm -v /home/vagrant/files/orthanc/orthanc.json:/etc/orthanc/orthanc.json:ro jodogne/orthanc-plugins 
+    #sudo docker run --name orthanc -p 4242:4242 -p 8042:8042 --rm -v /home/vagrant/files/orthanc/orthanc.json:/etc/orthanc/orthanc.json:ro jodogne/orthanc-plugins
+	/home/vagrant/files/orthanc/run_doch.sh build 
 }
 
 
@@ -281,11 +282,8 @@ ohif() {
 
 	# from https://github.com/OHIF/Viewers/issues/360 
 	# abd https://hub.docker.com/r/ohif/viewer
-	sudo docker pull ohif/viewer:latest
-	#sudo docker run -p 3000:3000 --name ohif ohif/viewer:latest
-	cd /home/vagrant/files/ohif
 	/home/vagrant/files/ohif/run_dock.sh build
-	cd -
+
 }
 
 
@@ -306,9 +304,13 @@ ohif() {
 	fi
 
 
+	# setup base services
+	postgres
+	docker
+
 	# then depending on role we call one or more Docker apps
-	#ohif_dev
-	ohif
+	orthanc
+	#ohif
 	
 	exit
 	
