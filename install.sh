@@ -200,8 +200,10 @@ mirth_hl7() {
 #
 ##########################
 
-	
 	# To make a persistent mirth dbase with postgres, first make a stub dbase 
+	if ! [ -x "$(command -v psql)" ]; then
+		postgres
+	fi
 	sudo /usr/bin/createdb -U postgres mirthdb
 	sudo /usr/bin/psql -U postgres -d mirthdb < /home/vagrant/files/mirth_hl7/mirthdb.sql
 
@@ -210,6 +212,9 @@ mirth_hl7() {
 	sudo /usr/bin/psql -U postgres -d rsnadb < /home/vagrant/files/mirth_hl7/rsnadb.sql
 	
 	# and now get mirth DOcker
+	if ! [ -x "$(command -v docker)" ]; then
+		docker
+	fi
 	sudo docker pull brandonstevens/mirth-connect
 
 	# -1- and start it (using default Derby dbase)
@@ -228,10 +233,16 @@ orthanc() {
 ##############################
 
 	# To make a persistent Orthanc dbase with postgres, first make a stub dbase 
+	if ! [ -x "$(command -v psql)" ]; then
+		postgres
+	fi
 	sudo /usr/bin/createdb -U postgres orthanc
 	sudo /usr/bin/psql -U postgres -d orthanc < /home/vagrant/files/orthanc/orthanc.sql
 	
 	# Now get the DOcker image https://book.orthanc-server.com/users/docker.html
+	if ! [ -x "$(command -v docker)" ]; then
+		docker
+	fi
 	sudo docker pull jodogne/orthanc-plugins
 	
 	# -2- this runs Orthanc on SQLlite which goes poof when DOcker shuts down
@@ -262,7 +273,9 @@ ohif_dev() {
 	sudo yum install -y yarn
 
 	# now get ohif source
-	sudo yum install -y git
+	if ! [ -x "$(command -v git)" ]; then
+		sudo yum install -y git
+	fi
 	git clone https://github.com/OHIF/Viewers.git
 	cd Viewers
 	yarn config set workspaces-experimental true
@@ -278,7 +291,9 @@ ohif() {
 #	OHIF docker for quick demo
 ##########################
 
-	docker
+	if ! [ -x "$(command -v docker)" ]; then
+		docker
+	fi
 
 	# from https://github.com/OHIF/Viewers/issues/360 
 	# abd https://hub.docker.com/r/ohif/viewer
@@ -303,10 +318,6 @@ ohif() {
 		disk
 	fi
 
-
-	# setup base services
-	postgres
-	docker
 
 	# then depending on role we call one or more Docker apps
 	orthanc
