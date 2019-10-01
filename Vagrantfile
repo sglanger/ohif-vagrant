@@ -36,6 +36,15 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 3000, host: 3000
  # config.vm.network "forwarded_port", guest: 80, host: 8000
  # config.vm.network "forwarded_port", guest: 443, host: 4430
+
+ # for orthanc (8042 for GUI and REST, 4242 for DICOM)
+  config.vm.network "forwarded_port", guest: 8042, host: 8042
+  config.vm.network "forwarded_port", guest: 4242, host: 4242
+
+  # for VM postgres
+  # https://github.com/jackdb/pg-app-dev-vm/tree/master/Vagrant-setup
+  # https://wiki.postgresql.org/wiki/PostgreSQL_For_Development_With_Vagrant#Linux_Installation
+  config.vm.network "forwarded_port", guest: 5432, host: 5433, protocol: "tcp"
  
   #for RDP session -
   #config.vm.network "forwarded_port", guest: 3389, host: 2179
