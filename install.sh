@@ -240,7 +240,7 @@ orthanc() {
 	# -2a- this starts Orthanc with a new conf file that point to Postgres
 	# from https://book.orthanc-server.com
     #sudo docker run --name orthanc -p 4242:4242 -p 8042:8042 --rm -v /home/vagrant/files/orthanc/orthanc.json:/etc/orthanc/orthanc.json:ro jodogne/orthanc-plugins
-	/home/vagrant/files/orthanc/run_doch.sh build 
+	/home/vagrant/files/orthanc/run_dock.sh build 
 }
 
 
