@@ -321,7 +321,7 @@ ohif() {
 
 	# then depending on role we call one or more Docker apps
 	orthanc
-	#ohif
+	ohif
 	
 	exit
 	

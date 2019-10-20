@@ -13,3 +13,7 @@ to use on Linux or Mac;
 
 to use on other OS's;
 - not tested
+
+# Notes
+this particular version has been shrink wrapped to bundle the very capable Orthanc DICOM archive with the very nice OHIF viewer. 
+
