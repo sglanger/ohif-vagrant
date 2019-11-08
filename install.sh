@@ -9,7 +9,7 @@
 # good ref
 # https://www.tecmint.com/things-to-do-after-minimal-rhel-centos-7-installation/
 #
-# NOte: people may ask why this and not a Makefile? Or why not a Makefile +
+# Note: people may ask why this and not a Makefile? Or why not a Makefile +
 #	a provisioner like Puppet or ANsible? Becuase I can do
 #  more in Bash then in Make, and going from  N frameworks to N - 1 (or 2) 
 #  reduces the moving parts and external dependencies
