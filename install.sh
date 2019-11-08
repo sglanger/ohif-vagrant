@@ -159,7 +159,7 @@ dev() {
 	wget https://services.gradle.org/distributions/gradle-3.4.1-bin.zip
 	sudo mkdir /opt/gradle
 	sudo unzip -d /opt/gradle gradle-3.4.1-bin.zip
-	sudo PATH=$PATH:/opt/gradle/gradle-3.4.1/binhttps://siim.org/page/19m_s_integrating_orthanc_ohif
+	sudo PATH=$PATH:/opt/gradle/gradle-3.4.1/bin # https://siim.org/page/19m_s_integrating_orthanc_ohif
 }
 
 
